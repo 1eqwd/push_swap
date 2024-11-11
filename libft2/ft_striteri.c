@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:26:02 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/10 21:29:19 by sumedai          ###   ########.fr       */
+/*   Created: 2024/05/03 15:56:08 by sumedai           #+#    #+#             */
+/*   Updated: 2024/09/05 15:03:18 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	t_dlst	*a;
+	unsigned int	len;
+	unsigned int	i;
 
-	a = init_stack(ac, av);
-	if (!a || ft_dpl_check(a))
+	i = 0;
+	if (!s || !f)
+		return ;
+	len = ft_strlen(s);
+	while (i < len)
 	{
-		ft_free(&a);
-		ft_error();
+		f(i, &s[i]);
+		i++;
 	}
-	if (!ft_sort_check(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
 }
+
+// void ft_ad_index(unsigned int index, char *c)
+// {
+//     c = c + index;
+// }
+
+// int main(void)
+// {
+//     char *a = "aldjf;asl";
+//     ft_striteri(a,ft_ad_index)
+//     return(0);
+// }

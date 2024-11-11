@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   addback.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:28:05 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/10 21:24:33 by sumedai          ###   ########.fr       */
+/*   Created: 2024/09/21 13:12:20 by sumedai           #+#    #+#             */
+/*   Updated: 2024/09/22 14:32:54 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void addback(t_dlst **lst, t_dlst *new)
+void ft_lstadd_back(t_list **lst, t_list *new)
 {
-    t_dlst  *tmp;
+    t_list  *tmp;
 
     if (!new)
         return ;
@@ -28,3 +28,22 @@ void addback(t_dlst **lst, t_dlst *new)
         tmp->next = new;
     }
 }
+
+// int main(void)
+// {
+//     t_list *begin = NULL;
+//     t_list *elem = ft_lstnew(strdup("lorm"));
+//     t_list *elem2 = ft_lstnew(strdup("chanc"));
+//     t_list *elem3 = ft_lstnew(strdup("gds"));
+//     ft_lstadd_back(&begin, elem);
+//     ft_lstadd_back(&begin, elem2);
+//     ft_lstadd_back(&begin, elem3);
+    
+//     while(begin)
+//     {
+//         printf("%s\n" ,(char *)begin->content);
+//         begin = begin->next;
+//     }
+//     return (0);
+//     ft_lstclear(&begin, free);
+// }

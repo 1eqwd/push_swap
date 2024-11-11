@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:26:02 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/10 21:29:19 by sumedai          ###   ########.fr       */
+/*   Created: 2024/04/24 08:02:56 by sumedai           #+#    #+#             */
+/*   Updated: 2024/09/05 15:03:49 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+size_t	ft_strlen(const char *str)
 {
-	t_dlst	*a;
+	size_t	i;
 
-	a = init_stack(ac, av);
-	if (!a || ft_dpl_check(a))
+	i = 0;
+	while (str[i] != '\0')
 	{
-		ft_free(&a);
-		ft_error();
+		i++;
 	}
-	if (!ft_sort_check(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	return (i);
 }
+
+// #include<string.h>
+// #include<stdio.h>
+// int main(void)
+// {
+//     char *a = "asdfb";
+//     int s = 0;
+//     s = strlen(a);
+//     printf("%d\n", s);
+//     printf("%zu\n", ft_strlen(a));
+// }

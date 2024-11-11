@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:26:02 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/10 21:29:19 by sumedai          ###   ########.fr       */
+/*   Created: 2024/09/21 13:12:30 by sumedai           #+#    #+#             */
+/*   Updated: 2024/09/21 13:51:11 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_dlst	*a;
+	t_list	*tmp;
 
-	a = init_stack(ac, av);
-	if (!a || ft_dpl_check(a))
+	if (!lst || !del)
+		return ;
+	while (*lst)
 	{
-		ft_free(&a);
-		ft_error();
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-	if (!ft_sort_check(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	*lst = NULL;
 }

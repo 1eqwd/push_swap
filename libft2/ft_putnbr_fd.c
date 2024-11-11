@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:26:02 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/10 21:29:19 by sumedai          ###   ########.fr       */
+/*   Created: 2024/05/01 20:02:12 by sumedai           #+#    #+#             */
+/*   Updated: 2024/09/05 15:02:44 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_dlst	*a;
-
-	a = init_stack(ac, av);
-	if (!a || ft_dpl_check(a))
+	if (fd < 0)
+		return ;
+	if (n == -2147483648)
 	{
-		ft_free(&a);
-		ft_error();
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	if (!ft_sort_check(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n *= -1;
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + '0', fd);
 }
+
+// int main(void)
+// {
+//     int rfd = open("./test3",O_WRONLY);
+//     ft_putnbr_fd(-2147483647,rfd);
+//     return(0);
+// }

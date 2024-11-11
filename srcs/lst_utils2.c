@@ -6,7 +6,7 @@
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 20:43:37 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/09 15:30:38 by sumedai          ###   ########.fr       */
+/*   Updated: 2024/11/11 19:54:19 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ int ft_find_index(t_dlst *lst, int nbr)
     int index;
 
 	index = 0;
-	while (lst->num != nbr)
+	while (lst)
 	{
+		if (lst->num == nbr)
+			return (index);
 		index++;
-		lst = lst->num;
+		lst = lst->next;
 	}
-	return (index);
+	return (-1);
 }
+
 
 int ft_find_place_b(t_dlst *b ,int nbr)
 {
@@ -70,3 +73,19 @@ int	ft_find_place_a(t_dlst *a, int nbr)
 	}
 	return (i);
 }
+
+// int main(int ac, char **av)
+// {
+// 	t_dlst *a = init_stack(ac, av);
+// 	t_dlst *tmp = a;
+
+// 	while (a)
+// 	{
+// 		printf("%d\n", a->num);
+// 		a = a->next;
+// 	}
+
+// 	printf("index = %d\n", ft_find_index(tmp, 3));
+
+// 	return (0);
+// }

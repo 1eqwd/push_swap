@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:26:02 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/10 21:29:19 by sumedai          ###   ########.fr       */
+/*   Created: 2024/04/24 13:31:33 by sumedai           #+#    #+#             */
+/*   Updated: 2024/09/05 15:04:26 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_tolower(int c)
 {
-	t_dlst	*a;
-
-	a = init_stack(ac, av);
-	if (!a || ft_dpl_check(a))
+	if (c >= 'A' && 'Z' >= c)
 	{
-		ft_free(&a);
-		ft_error();
+		c += 'a' - 'A';
+		return (c);
 	}
-	if (!ft_sort_check(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	else
+		return (c);
 }
+
+// #include<stdio.h>
+// #include<ctype.h>
+// int main(void)
+// {
+//     printf("%c\n", tolower('A'));
+//     printf("%c\n", ft_tolwer('A'));
+//     return(0);
+// }

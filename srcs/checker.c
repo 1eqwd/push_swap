@@ -6,7 +6,7 @@
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 20:43:24 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/09 15:27:05 by sumedai          ###   ########.fr       */
+/*   Updated: 2024/11/09 15:53:49 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int ft_sort_check(t_dlst *a)
     while (a->next)
     {
         if (a->num > a->next->num)
-            (0)
+            return (0);
         a = a->next;
     }
     return (1);

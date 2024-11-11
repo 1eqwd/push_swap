@@ -6,7 +6,7 @@
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 20:40:57 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/09 15:29:59 by sumedai          ###   ########.fr       */
+/*   Updated: 2024/11/09 15:56:18 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void ft_free(t_dlst **lst)
 {
     t_dlst *tmp;
-    while (lst)
+    while (*lst)
     {
-        tmp = lst->next;
-        free(lst);
-        lst = tmp;
+        tmp = (*lst)->next;
+        free(*lst);
+        *lst = tmp;
     }
 }
 
@@ -35,11 +35,11 @@ void ft_strfree(char **str)
         j = 0;
         while(str[i][j])
         {
-            tmp = str[i][j];
+            tmp = &str[i][j];
             j++;
             free(tmp);
         }
-        free(str[i][j]);
+        free(&str[i][j]);
         i++;
     }
     str = NULL;

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:26:02 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/10 21:29:19 by sumedai          ###   ########.fr       */
+/*   Created: 2024/04/24 14:55:02 by sumedai           #+#    #+#             */
+/*   Updated: 2024/09/05 15:00:25 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_bzero(void *b, size_t len)
 {
-	t_dlst	*a;
-
-	a = init_stack(ac, av);
-	if (!a || ft_dpl_check(a))
-	{
-		ft_free(&a);
-		ft_error();
-	}
-	if (!ft_sort_check(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	ft_memset(b, 0, len);
 }
+
+// int main(void)
+// {
+//     char c[] = "asddcxz";
+//     char d[] = "asddcxz";
+//     bzero(c+3, 3);
+//     ft_bzero(d+3, 3);
+//     printf("%s\n",c );
+//     printf("%s\n",d);
+//     return(0);
+// }

@@ -6,7 +6,7 @@
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 20:45:56 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/09 15:32:06 by sumedai          ###   ########.fr       */
+/*   Updated: 2024/11/09 16:02:00 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int ft_case_rarrb(t_dlst *a, t_dlst *b, int c)
     int i;
 
     i = 0;
-    if (ft_find_plase_b(b, c))
-        i = lstsize - ft_find_place_b(b, c);
+    if (ft_find_place_b(b, c))
+        i = lstsize(b) - ft_find_place_b(b, c);
     i = ft_find_index(a,c) + i;
     return (i);
 }

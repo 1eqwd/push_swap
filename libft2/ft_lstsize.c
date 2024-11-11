@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:26:02 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/10 21:29:19 by sumedai          ###   ########.fr       */
+/*   Created: 2024/04/24 16:41:46 by sumedai           #+#    #+#             */
+/*   Updated: 2024/09/22 13:31:46 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int ft_lstsize(t_list *lst)
 {
-	t_dlst	*a;
+    size_t len;
 
-	a = init_stack(ac, av);
-	if (!a || ft_dpl_check(a))
-	{
-		ft_free(&a);
-		ft_error();
-	}
-	if (!ft_sort_check(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+    len = 0;
+    while (lst)
+    {
+        lst = lst->next;
+        len++;
+    }
+    return (len);
 }

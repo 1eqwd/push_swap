@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:26:02 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/10 21:29:19 by sumedai          ###   ########.fr       */
+/*   Created: 2024/04/24 13:08:39 by sumedai           #+#    #+#             */
+/*   Updated: 2024/09/05 15:05:06 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_toupper(int c)
 {
-	t_dlst	*a;
-
-	a = init_stack(ac, av);
-	if (!a || ft_dpl_check(a))
+	if (c >= 'a' && 'z' >= c)
 	{
-		ft_free(&a);
-		ft_error();
+		c -= 'a' - 'A';
+		return (c);
 	}
-	if (!ft_sort_check(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	else
+		return (c);
 }
+
+// #include<ctype.h>
+// #include<stdio.h>
+// int main(void)
+// {
+//     printf("%c\n", toupper('B'));
+//     printf("%c\n", ft_toupper('r'));
+//     return(0);
+// }

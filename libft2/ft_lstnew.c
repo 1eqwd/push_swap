@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:26:02 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/10 21:29:19 by sumedai          ###   ########.fr       */
+/*   Created: 2024/09/21 15:54:21 by sumedai           #+#    #+#             */
+/*   Updated: 2024/09/21 15:54:30 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+t_list *ft_lstnew(void *centent)
 {
-	t_dlst	*a;
+    t_list *new_node;
 
-	a = init_stack(ac, av);
-	if (!a || ft_dpl_check(a))
-	{
-		ft_free(&a);
-		ft_error();
-	}
-	if (!ft_sort_check(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+    new_node = malloc(sizeof(t_list));
+    if (!new_node)
+        return (NULL);
+    new_node->content = centent;
+    new_node->next = NULL;
+    return(new_node);
 }

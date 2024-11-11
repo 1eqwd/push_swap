@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:26:02 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/10 21:29:19 by sumedai          ###   ########.fr       */
+/*   Created: 2024/05/15 12:03:04 by sumedai           #+#    #+#             */
+/*   Updated: 2024/09/05 15:02:33 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_dlst	*a;
+	int	i;
 
-	a = init_stack(ac, av);
-	if (!a || ft_dpl_check(a))
+	i = 0;
+	if (!s || fd < 0)
+		return ;
+	while (s[i])
 	{
-		ft_free(&a);
-		ft_error();
+		write(fd, &s[i], 1);
+		i++;
 	}
-	if (!ft_sort_check(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	write(fd, "\n", 1);
 }

@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 20:26:02 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/10 21:29:19 by sumedai          ###   ########.fr       */
+/*   Created: 2024/04/24 08:52:55 by sumedai           #+#    #+#             */
+/*   Updated: 2024/09/05 15:00:58 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_isalpha(int c)
 {
-	t_dlst	*a;
-
-	a = init_stack(ac, av);
-	if (!a || ft_dpl_check(a))
-	{
-		ft_free(&a);
-		ft_error();
-	}
-	if (!ft_sort_check(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	if ((c >= 'A' && 'Z' >= c) || (c >= 'a' && 'z' >= c))
+		return (1);
+	else
+		return (0);
 }
+
+/*#include <ctype.h>
+#include <stdio.h>
+
+int	main(void)
+{
+    char a = '1';
+
+    printf("%d\n" ,isalpha(a));
+    printf("%d\n", ft_isalpha(a));
+}*/
