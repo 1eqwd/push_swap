@@ -1,5 +1,6 @@
 
-NAME = push_swap.a
+NAME = push_swap
+
 SRCS_DIR = ./srcs
 SRCS = $(SRCS_DIR)/addback.c $(SRCS_DIR)/apply_push.c\
 	   $(SRCS_DIR)/cheapst_calculation.c $(SRCS_DIR)/checker.c\
@@ -11,33 +12,35 @@ SRCS = $(SRCS_DIR)/addback.c $(SRCS_DIR)/apply_push.c\
 	   $(SRCS_DIR)/solver_ba.c $(SRCS_DIR)/sort_three.c\
 	   $(SRCS_DIR)/sort.c $(SRCS_DIR)/stack_init.c
 
-OBJS = $(SRCS:%.c=%.o)
+OBJ_DIR = obj
+OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-INCUDES = -I./includes
-LIBFT_PATH = ./libft/
-LIBFT_NAME = libft.a
-AR = ar rcs
+INCLUDES = -L./libft -lft
+LIBFT_PATH = libft/
+RM = rm -f
 
 $(NAME) : $(OBJS)
 	$(MAKE) -C $(LIBFT_PATH)
-	mv $(LIBFT_PATH)/$(LIBFT_NAME) $(NAME)
-	$(AR) $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(INCLUDES)
 
-.c .o :
-	$(CC) $(CFLAGS) $(INCUDES) -c $< -o $@
+$(OBJ_DIR)/%.o : $(SRCS_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all : $(NAME)
 
 clean :
-	$(MAKE) -C $(LIBFT_PATH) clean
 	$(RM) $(OBJS)
+	$(RM) $(SRCS_DIR)/*.o
+	@cd $(LIBFT_PATH) && $(MAKE) clean
 
 fclean : clean
 	$(RM) $(NAME)
+	@cd $(LIBFT_PATH) && $(MAKE) fclean
 
-re :	fclean all
+re : fclean all
 
 .PHONY : all clean fclean re
 	
