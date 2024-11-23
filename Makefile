@@ -17,7 +17,7 @@ OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -L./libft -lft
+INCLUDES = -L./libft -lft -I./libft
 LIBFT_PATH = libft/
 RM = rm -f
 

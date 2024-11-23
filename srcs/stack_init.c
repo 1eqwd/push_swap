@@ -6,7 +6,7 @@
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 20:35:56 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/11 20:01:34 by sumedai          ###   ########.fr       */
+/*   Updated: 2024/11/23 15:36:31 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	ft_atoi2(const char *str)
 	}
     if (str[i] == '-' || str[i] == '+')
         ft_error();
+    if (!(str[i] >= '0' && '9' >= str[i]))
+        ft_error();
 	while (str[i] >= '0' && '9' >= str[i])
 	{
 		if (result * power > (LONG_MAX - (str[i] - '0')) / 10)
@@ -47,17 +49,18 @@ t_dlst *sub_init(char *av)
     t_dlst *a;
     t_dlst *node;
     char **str;
+    int i;
 
     a = NULL;
     str = ft_split(av, ' ');
-    while (str)
+    i = 0;
+    while (str[i])
     {
-        node = newnode(ft_atoi2(*str));
+        node = newnode(ft_atoi2(str[i]));
         addback(&a, node);
-        str++;
+        i++;
     }
     ft_strfree(str);
-    free(str);
     return (a);
 }
 

@@ -6,7 +6,7 @@
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:18:22 by sumedai           #+#    #+#             */
-/*   Updated: 2024/09/05 15:02:57 by sumedai          ###   ########.fr       */
+/*   Updated: 2024/11/21 17:08:42 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ char	**ft_split(char const *s, char c)
 // {
 // 	// char a[] = "";
 // 	// char b = ' ';
-// 	char **c = ft_split("Helo!",' ');
+// 	char **c = ft_split("42",' ');
 // 	int i = 0;
 // 	while(c[i])
 // 	{
