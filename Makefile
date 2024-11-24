@@ -16,7 +16,8 @@ OBJ_DIR = obj
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
+CFLAGS += -fsanitize=address -g
 INCLUDES = -L./libft -lft -I./libft
 LIBFT_PATH = libft/
 RM = rm -f

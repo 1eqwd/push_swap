@@ -6,16 +6,15 @@
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 20:39:13 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/11 20:00:39 by sumedai          ###   ########.fr       */
+/*   Updated: 2024/11/24 13:59:42 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-
-void ft_sort_till_b(t_dlst **a, t_dlst **b)
+void	ft_sort_till_b(t_dlst **a, t_dlst **b)
 {
-    int		i;
+	int		i;
 	t_dlst	*tmp;
 
 	while (lstsize(*a) > 3 && !ft_sort_check(*a))
@@ -38,25 +37,25 @@ void ft_sort_till_b(t_dlst **a, t_dlst **b)
 	}
 }
 
-t_dlst *ft_sort_b(t_dlst **a)
+t_dlst	*ft_sort_b(t_dlst **a)
 {
-    t_dlst	*b;
+	t_dlst	*b;
 
-	    b = NULL;
-	    if (lstsize(*a) > 3 && !ft_sort_check(*a))
-		    ft_pb(a, &b, 0);
-	    if (lstsize(*a) > 3 && !ft_sort_check(*a))
-		    ft_pb(a, &b, 0);
-	    if (lstsize(*a) > 3 && !ft_sort_check(*a))
-		    ft_sort_till_b(a, &b);
-	    if (!ft_sort_check(*a))
-		    ft_sort_three(a);
-	    return (b);
+	b = NULL;
+	if (lstsize(*a) > 3 && !ft_sort_check(*a))
+		ft_pb(a, &b, 0);
+	if (lstsize(*a) > 3 && !ft_sort_check(*a))
+		ft_pb(a, &b, 0);
+	if (lstsize(*a) > 3 && !ft_sort_check(*a))
+		ft_sort_till_b(a, &b);
+	if (!ft_sort_check(*a))
+		ft_sort_three(a);
+	return (b);
 }
 
-t_dlst **ft_sort_a(t_dlst **a, t_dlst **b)
+t_dlst	**ft_sort_a(t_dlst **a, t_dlst **b)
 {
-    int		i;
+	int		i;
 	t_dlst	*tmp;
 
 	while (*b)
@@ -80,9 +79,10 @@ t_dlst **ft_sort_a(t_dlst **a, t_dlst **b)
 	return (a);
 }
 
-void ft_sort(t_dlst **a)
+void	ft_sort(t_dlst **a)
 {
-    t_dlst	*b;
+	t_dlst	*b;
+	t_dlst	*tmp;
 	int		i;
 
 	b = NULL;
@@ -91,6 +91,7 @@ void ft_sort(t_dlst **a)
 	else
 	{
 		b = ft_sort_b(a);
+		tmp = b;
 		a = ft_sort_a(a, &b);
 		i = ft_find_index(*a, ft_min(*a));
 		if (i < lstsize(*a) - i)
@@ -102,10 +103,9 @@ void ft_sort(t_dlst **a)
 		{
 			while ((*a)->num != ft_min(*a))
 				ft_rra(a, 0);
-		}			
-	}	
+		}
+	}
 }
-
 
 // int main(int ac, char **av)
 // {
@@ -124,4 +124,3 @@ void ft_sort(t_dlst **a)
 // 	// }
 // 	return (0);
 // }
-

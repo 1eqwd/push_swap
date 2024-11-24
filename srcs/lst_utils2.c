@@ -6,31 +6,28 @@
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 20:43:37 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/11 19:54:19 by sumedai          ###   ########.fr       */
+/*   Updated: 2024/11/23 20:56:20 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int ft_find_index(t_dlst *lst, int nbr)
+int	ft_find_index(t_dlst *lst, int nbr)
 {
-    int index;
+	int	index;
 
 	index = 0;
-	while (lst)
+	while (lst->num != nbr)
 	{
-		if (lst->num == nbr)
-			return (index);
 		index++;
 		lst = lst->next;
 	}
-	return (-1);
+	return (index);
 }
 
-
-int ft_find_place_b(t_dlst *b ,int nbr)
+int	ft_find_place_b(t_dlst *b, int nbr)
 {
-    int		i;
+	int		i;
 	t_dlst	*tmp;
 
 	i = 1;
@@ -53,7 +50,7 @@ int ft_find_place_b(t_dlst *b ,int nbr)
 
 int	ft_find_place_a(t_dlst *a, int nbr)
 {
-    int		i;
+	int		i;
 	t_dlst	*tmp;
 
 	i = 1;

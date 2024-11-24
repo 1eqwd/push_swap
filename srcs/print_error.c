@@ -6,14 +6,14 @@
 /*   By: sumedai <sumedai@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 20:26:51 by sumedai           #+#    #+#             */
-/*   Updated: 2024/11/09 15:31:22 by sumedai          ###   ########.fr       */
+/*   Updated: 2024/11/24 13:57:09 by sumedai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void ft_error(void)
+void	ft_error(void)
 {
-    write(1, "Error\n", 5);
-    exit(1);
+	write(1, "Error\n", 5);
+	exit(1);
 }

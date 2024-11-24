@@ -19,7 +19,7 @@ typedef struct s_dlst
 }               t_dlst;
 
 
-int main(int ac, char **av);
+// int main(int ac, char **av);
 void ft_free(t_dlst **lst);
 void ft_strfree(char **str);
 int ft_dpl_check(t_dlst *a);
